@@ -13,8 +13,14 @@ function App() {
   const chartRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    fetch('/data.json')
-      .then((res) => res.json())
+    const baseUrl = import.meta.env.BASE_URL;
+    fetch(`${baseUrl}data.json`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
       .then((data) => setChartData(data))
       .catch((err) => console.error('Failed to load data:', err));
   }, []);
