@@ -13,8 +13,17 @@ function App() {
   const chartRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const baseUrl = import.meta.env.BASE_URL;
-    fetch(`${baseUrl}data.json`)
+    let baseUrl = import.meta.env.BASE_URL;
+    if (!baseUrl || baseUrl === '/') {
+      const pathname = window.location.pathname;
+      if (pathname.includes('/ab-test-chart')) {
+        baseUrl = '/ab-test-chart/';
+      } else {
+        baseUrl = '/';
+      }
+    }
+    const dataUrl = `${baseUrl}data.json`.replace(/\/+/g, '/');
+    fetch(dataUrl)
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
