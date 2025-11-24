@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { ChartData, TimeRange, LineStyle, Theme } from './types';
 import { LineChart } from './components/LineChart';
 import { Controls } from './components/Controls';

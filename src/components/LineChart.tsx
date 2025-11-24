@@ -22,7 +22,7 @@ interface LineChartProps {
   selectedVariations: string[];
   lineStyle: LineStyle;
   theme: 'light' | 'dark';
-  onExport: () => void;
+  onExport?: () => void;
 }
 
 export const LineChart: React.FC<LineChartProps> = ({
@@ -31,7 +31,6 @@ export const LineChart: React.FC<LineChartProps> = ({
   selectedVariations,
   lineStyle,
   theme,
-  onExport,
 }) => {
   const chartRef = useRef<HTMLDivElement>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -126,8 +125,7 @@ export const LineChart: React.FC<LineChartProps> = ({
           tick={{ fill: theme === 'dark' ? '#ccc' : '#666' }}
           tickFormatter={(value) => `${value.toFixed(1)}%`}
         />
-        <Tooltip
-          variations={variations}
+        <RechartsTooltip
           content={<Tooltip variations={variations} />}
         />
         {hoveredIndex !== null && (
