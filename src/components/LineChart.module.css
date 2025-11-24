@@ -1,0 +1,14 @@
+.chartContainer {
+  width: 100%;
+  background: var(--bg-primary, #fff);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 671px) and (max-width: 1300px) {
+  .chartContainer {
+    padding: 16px;
+  }
+}
+

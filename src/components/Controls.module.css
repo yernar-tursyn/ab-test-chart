@@ -1,0 +1,126 @@
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 20px;
+  background: var(--bg-secondary, #f5f5f5);
+  border-radius: 8px;
+  margin-bottom: 24px;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.controlGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary, #666);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.variationButtons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.variationButton {
+  padding: 8px 16px;
+  border: 2px solid var(--border-color, #ddd);
+  background: var(--bg-primary, #fff);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+  color: var(--text-primary, #333);
+}
+
+.variationButton:hover:not(:disabled) {
+  border-color: var(--primary-color, #8884d8);
+  background: var(--bg-hover, #f0f0f0);
+}
+
+.variationButton.selected {
+  background: var(--primary-color, #8884d8);
+  color: white;
+  border-color: var(--primary-color, #8884d8);
+}
+
+.variationButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 4px;
+}
+
+.button {
+  padding: 8px 16px;
+  border: 2px solid var(--border-color, #ddd);
+  background: var(--bg-primary, #fff);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+  color: var(--text-primary, #333);
+}
+
+.button:hover {
+  border-color: var(--primary-color, #8884d8);
+}
+
+.button.active {
+  background: var(--primary-color, #8884d8);
+  color: white;
+  border-color: var(--primary-color, #8884d8);
+}
+
+.iconGroup {
+  display: flex;
+  gap: 8px;
+}
+
+.iconButton {
+  padding: 8px 12px;
+  border: 2px solid var(--border-color, #ddd);
+  background: var(--bg-primary, #fff);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.2s;
+}
+
+.iconButton:hover {
+  border-color: var(--primary-color, #8884d8);
+  background: var(--bg-hover, #f0f0f0);
+}
+
+@media (min-width: 671px) and (max-width: 1300px) {
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .controlGroup {
+    width: 100%;
+  }
+
+  .variationButtons,
+  .buttonGroup {
+    width: 100%;
+  }
+
+  .variationButton,
+  .button {
+    flex: 1;
+  }
+}
+
